@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Data</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://bioed.bu.edu/students_24/mchang15/update_style_testing.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+</head>
+<body>
+<div class="upload-content-container">
+<!--<div class="update-create-content" id="content-update-container">
+    <div class="excel" id="content-update-excel">
+          <h4>Excel Upload: </h4>
+          <!-- Help links -->
+          <!--<div class="help-links">
+              <p>Upload update help</p>
+              <p><a href="https://bioed.bu.edu/students_24/Team_1/help.html#how_do_i_update" onclick="openHelpTab()">Need help updating the table?</a></p>
+          </div>
+          <form id="uploadForm1" method="post">
+              <input type="file" id="excelNewFile" name="excelFile" accept=".xlsx,.xls" required onchange="handleFileUpload('update', 'excelNewFile')">
+          </form>
+          <div class="tablePreview" id="previewContainerUpdate"></div>
+          
+          <button class="create-buttons" id="update-excel-buttons" style="display:none;" onclick="sendData('https://bioed.bu.edu/cgi-bin/students_24/Team_1/upload_testing_mabel2.py')">Send Data</button>
+          
+          <h4>Excel Template and Instructions: </h4>
+          <button onclick="openBothFiles('update')">Download</button> 
+    </div>
+    <div class="horizontal-line"></div>
+</div>-->
+
+<div class="update-create-content hidden" id="content-create-container">
+    <div class="excel">
+        <h4>Excel Upload: </h4>
+        <!-- Help links -->
+        <div class="help-links">
+            <p>Upload update help</p>
+            <p><a href="https://bioed.bu.edu/students_24/Team_1/help.html#how_do_i_update" onclick="openHelpTab()">Need help updating the table?</a></p>
+        </div>
+        <form id="uploadForm2" method="post">
+            <input type="file" id="excelNewFile" name="excelFile" accept=".xlsx,.xls" required onchange="handleFileUpload('update', 'excelNewFile')">
+        </form>
+        <div class="tablePreview" id="previewContainerUpdate"></div>
+        
+        <button class="create-buttons" id="update-excel-buttons" style="display:none;" onclick="sendData('https://bioed.bu.edu/cgi-bin/students_24/Team_1/upload_testing_mabel.py')">Send Data</button>
+        
+        <h4>Excel Template and Instructions: </h4>
+        <button onclick="openBothFiles('update')">Download</button> 
+    </div>
+    <div class="horizontal-line"></div>
+</div>
+
+<div class="update-delete-content hidden" id="content-delete-container">
+    <!-- Help links -->
+    <div class="help-links">
+        <p>Upload create help</p>
+        <p><a href="https://bioed.bu.edu/students_24/Team_1/help.html#how_do_i_update" onclick="openHelpTab()">Need help updating the table?</a></p>
+    </div>
+    <form id="deleteForm" method="post">
+          <div class="form-row">
+                <label for="mouseIDs">Enter Mouse IDs (comma-separated):</label>
+                <textarea class="textbox" id="mouseIDs" name="mouseIDs" rows="4" cols="50" required></textarea>
+          </div>
+          <br><br>
+          <div class="deleteButton">
+                <button type="button" onclick="deleteData()">Delete Data</button>
+          </div>
+    </form>
+</div>
+    
+    <script src="https://bioed.bu.edu/students_24/mchang15/update_script_testing.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+</body>
+</html>
