@@ -4,7 +4,7 @@ WhiskerWatchersDB is a laboratory database and web application designed to manag
   
 ## Technologies
 * Database: MySQL, managed via DBeaver  
-* Backend Connectivity:** Python CGI, PyMySQL
+* Backend Connectivity: Python CGI, PyMySQL
 * Frontend: HTML, CSS, JavaScript, jQuery
   
 ## Features
