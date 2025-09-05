@@ -36,6 +36,4 @@ WhiskerWatchersDB is a laboratory database and web application designed to manag
 ## Aknowledgements
 We thank Dr. Nabil Rabhi and the Farmer Lab at Boston University, Chobanian & Avedisian School of Medicine, Department of Biochemistry & Cell Biology for commissioning this project and providing guidance on the database requirements.
 
-We thank Dr. Gary Benson for their guidance and instruction during the course, which made this project possible.
-
-Developed as the final project for BF768: Biological Database Analysis at Boston University (S24)
+Developed as the final project for BF768: Biological Database Analysis at Boston University (S24), instructed by Dr. Gary Benson
