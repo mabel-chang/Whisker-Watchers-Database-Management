@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphing Mouse Frequencies</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    
+    <!--<link rel="stylesheet" href="../style/graphs.css">-->
+</head>
+<body>
+<header class="banner">
+        <div class="left-content">
+            <h1>WhiskerWatchersDB</h1>
+        </div>
+</header>
+
+<div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'home')"><b>Home</b></button>
+        <button class="tablinks" onclick="openTab(event, 'filter')"><b>Mouse Information</b></button>
+        <button class="tablinks" onclick="openTab(event, 'breedinglog')"><b>Breeding Log</b></button>
+        <button class="tablinks" onclick="openTab(event, 'graphs')"><b>Graph Mouse Frequencies</b></button>
+        <button class="tablinks" onclick="openTab(event, 'update')"><b>Update Mouse Data</b></button>
+        <button class="tablinks" onclick="openTab(event, 'help')"><b>Help</b></button>
+        <div class="tab-right">
+            <button id="user-greeting-btn" class="btn"><b>Hello, User</b></button>
+        </div>
+</div>
+
+<div id="user-menu" class="side-panel closed">
+        <button id="logout-btn" class="logout-btn">Logout</button>
+</div>
+
+    <h1>Graphing Mouse Frequencies</h1>
+    <form action="../cgi-bin/graphs.py" method="get" id="mouseFrequencyForm">
+        <label for="tableOption">Table Option:
+          <select id="tableOption" name="strain_name">
+              <!--autopopulate-->
+          </select><br><br>
+        </label>
+        <input type="radio" id="aliveMice" name="mouse-status" value="alive" checked>
+        <label for="aliveMice">Alive Mice</label><br>
+        <input type="radio" id="allMice" name="mouse-status" value="all">
+        <label for="allMice">All Mice</label><br><br>
+
+        <label for="group1">Grouping Variable 1:</label>
+        <select id="group1" name="group1">
+            <option value="">Select grouping variable</option>
+            <option value="Sex">Sex</option>
+            <option value="MouseType">MouseType</option>
+            <option value="MouseStatus">MouseStatus</option>
+            <option value="ParentCage">ParentCage</option>
+            <option value="AgeWeeks">AgeWeeks</option>
+            <option value="CageNumber">CageNumber</option>
+        </select><br><br>
+
+        <label for="group2">Grouping Variable 2:</label>
+        <select id="group2" name="group2">
+            <option value="">Select grouping variable</option>
+            <option value="Sex">Sex</option>
+            <option value="MouseType">MouseType</option>
+            <option value="MouseStatus">MouseStatus</option>
+            <option value="ParentCage">ParentCage</option>
+            <option value="AgeWeeks">AgeWeeks</option>
+            <option value="CageNumber">CageNumber</option>
+        </select><br><br>
+
+        <label for="chartType">Chart Type:</label>
+        <select id="chartType" name="chartType">
+            <option value="bar">Bar Plot</option>
+            <option value="pie">Pie Chart</option>
+        </select><br><br>
+
+        <input type="button" value="Generate Chart" id="generateChartBtn">
+        <input type="button" value="Reset Filters" id="resetFiltersBtn">
+
+    </form>
+
+    <div id="chart" style="width: 900px; height: 500px;"></div>
+
+<!-- Download -->
+    <div id="downloadContainer" style="display: none;">
+        <div class="download">
+            <a id="download_link" href="/" download=""></a>
+            <button class="download-btn" id="downloadChartBtn">Download graph</button>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/graphs.js"></script>
+</body>
+</html>

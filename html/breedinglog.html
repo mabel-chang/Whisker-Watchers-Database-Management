@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breeding Log</title>
+    <link rel="stylesheet" href="../style/breedinglog.css">
+</head>
+<body>
+
+<header class="banner">
+        <div class="left-content">
+            <h1>WhiskerWatchersDB</h1>
+        </div>
+</header>
+
+<div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'home')"><b>Home</b></button>
+        <button class="tablinks" onclick="openTab(event, 'filter')"><b>Mouse Information</b></button>
+        <button class="tablinks" onclick="openTab(event, 'breedinglog')"><b>Breeding Log</b></button>
+        <button class="tablinks" onclick="openTab(event, 'graphs')"><b>Graph Mouse Frequencies</b></button>
+        <button class="tablinks" onclick="openTab(event, 'update')"><b>Update Mouse Data</b></button>
+        <button class="tablinks" onclick="openTab(event, 'help')"><b>Help</b></button>
+        <div class="tab-right">
+            <button id="user-greeting-btn" class="btn"><b>Hello, User</b></button>
+        </div>
+</div>
+
+<div id="user-menu" class="side-panel closed">
+        <button id="logout-btn" class="logout-btn">Logout</button>
+</div>
+
+<div class="container">
+    <!-- Filter container -->
+    <div class="filter-container">
+        <!-- Filter content -->
+        <div id="filter" class="tab-content">
+            <!-- Filter form -->
+            <div class="form-container">
+                <form action="../cgi-bin/breedinglog.py" method="get" id="filter-form">
+                    <div class="form-row">
+                        <div class="search-container">
+                            <label for="BreedingCage">Breeding Cage ID:</label>
+                            <input type="text" id="BreedingCage" name="BreedingCage" placeholder="e.g. 102032">
+                        </div>
+                        <div class="date-container">
+                            <label for="SetupDate">Setup Date:</label>
+                            <input type="date" id="SetupDate" name="SetupDate">
+                        </div>
+                        <div class="select-container">
+                            <label for="strain_name_options">Strain:</label>
+          	                 <select id="strain_name" name="strain_name">
+                                <!--auto populate-->
+                              </select>
+                        </div>
+                        <div class="search-container">
+                            <label for="Stud">Stud ID:</label>
+                            <input type="text" id="Stud" name="Stud" placeholder="e.g. 83245">
+                        </div>
+                        <div class="search-container">
+                            <label for="Dam">Dam ID:</label>
+                            <input type="text" id="Dam" name="Dam" placeholder="e.g. 48958">
+                        </div>
+                        <div class="select-container">
+                            <label for="BreedingStatus">Breeding Status:</label>
+               	           <select id="BreedingStatus" name="BreedingStatus">
+                                <option value="">Select Status</option>
+                                <option value="1">Harem</option>
+                                <option value="0">Not Harem</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Sorting options -->
+                    <div class="form-row">
+                        <label for="sort">Sort by:</label>
+                        <select id="sort" name="sort">
+                            <option value="">Select sorting option</option> 
+                            <option value="cage_number">Breeding Cage ID</option>
+                            <option value="setup_date">Cage Setup Date</option>
+                            <option value="strain_name">Strain</option>
+                            <option value="studID">Stud (Male) ID</option>
+                            <option value="dameID">Dame (Female) ID</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label id="order">Sort order:</label>
+                        <input type="radio" name="order" value="ASC"> Ascending
+                        <input type="radio" name="order" value="DESC"> Descending
+                    </div>
+                    <!-- Apply and Reset buttons -->
+                    <div class="form-row">
+                        <input type="button" value="Apply filters" onclick="submitFilterForm()">
+                    </div>
+                    <div class="form-row">
+                        <input type="button" value="Reset filters" onclick="resetFilters()">
+                    </div>
+                </form>
+            </div>
+            <!-- Help links -->
+            <div class="help-links">
+                <p>Choose specific criteria such as <b>Breeding cage</b>, <b>Strain</b>, and <b>Stud/Dam IDs</b> for filtering. Click "Filter" to generate a tailored table based on your selections.</p>
+                <p><a href="../html/help.html#how_do_i_filter" onclick="openHelpTab()">Need help understanding the filters?</a></p>
+                <p><a href="../html/help.html#what_does_the_table_show" onclick="openHelpTab()">Need help reading the table?</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Table container -->
+    <div class="table-container">
+        <!-- Table headers and rows will be dynamically generated here -->
+    </div>
+</div>
+
+<!-- Download options -->
+<div class="download-options">
+    <label for="file-format">Choose File Format:</label>
+    <select name="file-format" id="file-format">
+        <option value="csv">CSV</option>
+        <option value="excel">Excel</option>
+        <option value="txt">Text</option>
+    </select>
+    <button class="download-btn" onclick="downloadFilteredTable()">Download</button>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="../js/breedinglog.js"></script>
+</body>
+</html>

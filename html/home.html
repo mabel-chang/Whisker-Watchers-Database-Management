@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to the WhiskerWatchers Database</title>
+    <link rel="stylesheet" href="../style/home.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+
+<body>
+    <header class="banner">
+        <div class="left-content">
+            <h1>WhiskerWatchersDB</h1>
+            <img src="../assets/images/logo.png" alt="logo" class="logo">
+        </div>
+    </header>
+
+    <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'home')"><b>Home</b></button>
+        <button class="tablinks" onclick="openTab(event, 'filter')"><b>Mouse Information</b></button>
+        <button class="tablinks" onclick="openTab(event, 'breedinglog')"><b>Breeding Log</b></button>
+        <button class="tablinks" onclick="openTab(event, 'graphs')"><b>Graph Mouse Frequencies</b></button>
+        <button class="tablinks" onclick="openTab(event, 'update')"><b>Update Mouse Data</b></button>
+        <button class="tablinks" onclick="openTab(event, 'help')"><b>Help</b></button>
+        <div class="tab-right">
+            <div class="vertical-line"></div> <!-- Vertical blue line -->
+            <button class="logout-btn btn" onclick="logout()"><b>Log Out</b></button> <!-- Log Out button with onclick event -->
+        </div>
+    </div>
+
+    <h1>Welcome to the WhiskerWatchers Database</h1>
+
+    <section>
+        <h2>About WhiskerWatchersDB</h2>
+        <p>
+            The biochemistry laboratory are actively engaged in mouse-related experiments, necessitating the implementation of a robust database system for efficient data management. This database serves as a centralized platform to track and organize various aspects of mouse related information. It facilitates the identification of mating pairs, harems, and their respective breeding cages while recording crucial details such as the date of birth and sex for each mouse. Additionally, the database links mice to specific experiments and strains, allowing researchers to monitor their involvement and outcomes accurately. Furthermore, it maintains comprehensive records of deceased mice and associates experimental protocols with individual mice, ensuring thorough documentation of research procedures. Access to this database is restricted to authorized laboratory personnel, who are granted secure entry through password protection measures.
+        </p>
+    </section>
+
+    <section>
+        <h2>About Us</h2>
+        <p>
+           This website and its accompanying database were crafted at Boston University as an integral component of the course, BF768-Biological Database Analysis, Spring 2024, under the guidance of Dr. Gary Benson and overseen by Dr. Nabil Rabhi of the Biochemistry Department. The project was brought to life through the collaborative efforts of student developers: Mabel Chang, Akhila Gundavelli, and Maria van de Meent.
+        </p>
+    </section>
+    <form action="../cgi-bin/home.py" method="get" id="ChartsForm">
+        <div class="chart-container">
+            <div id="chart4" class="chart"></div>
+            <div id="chart1" class="chart"></div>
+            <div id="chart2" class="chart"></div>
+            <div id="chart3" class="chart"></div>
+            <div id="chart5" class="chart"></div>
+        </div>
+    </form>
+<script src="../js/home.js"></script>
+</body>
+</html>

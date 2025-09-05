@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help</title>
+    <link rel="stylesheet" type="text/css" href="../style/help.css">
+</head>
+<body>
+<!-- TOP BANNER -->
+    <!-- Header -->
+    <header class="banner">
+        <div class="left-content">
+            <h1>WhiskerWatchersDB</h1>
+            <img src="../assets/images/logo.png" alt="logo" class="logo">
+        </div>
+    </header>
+
+    <!-- Tabs -->
+    <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'home')"><b>Home</b></button>
+        <button class="tablinks" onclick="openTab(event, 'filter')"><b>Mouse Information</b></button>
+        <button class="tablinks" onclick="openTab(event, 'breedinglog')"><b>Breeding Log</b></button>
+        <button class="tablinks" onclick="openTab(event, 'graphs')"><b>Graph Mouse Frequencies</b></button>
+        <button class="tablinks" onclick="openTab(event, 'update')"><b>Update Mouse Data</b></button>
+        <button class="tablinks" onclick="openTab(event, 'help')"><b>Help</b></button>
+        <div class="tab-right">
+            <div class="vertical-line"></div> <!-- Vertical blue line -->
+            <button class="logout-btn btn" onclick="logout()"><b>Log Out</b></button> <!-- Log Out button with onclick event -->
+        </div>
+    </div>
+
+<!-- PAGE CONTENT -->
+    <h2>Frequently Asked Questions</h2>
+
+    <section id="what_does_the_table_show">
+        <h3>What does the table show?</h3>
+        <p>The table displays information about mice in the database. It includes details such as mouse ID, date of birth, sex, status, cage information, breeding details, and more.</p>
+    </section>
+
+    <section id="how_do_i_filter">
+        <h3>How do I filter the table?</h3>
+        <p>The Filter tab allows users to filter and search for specific data within a dataset based on various criteria.</p>
+
+        <ol>
+            <li>Select a table from the dropdown menu.</li>
+            <li>Choose specific criteria such as Mouse ID, Sex, and Mouse Status for filtering.</li>
+            <li>Click the "View Table" button to generate a table based on your selections.</li>
+            <li>Optionally, you can further refine your search by entering values in the Mouse ID, Parent Cage ID, Cage Number ID, and Breeding Cage ID fields.</li>
+            <li>Choose sorting options from the dropdown menus.</li>
+            <li>Click the "Apply filters" button to apply your filters and sorting preferences.</li>
+            <li>Click the "Reset filters" button to clear all filters and reset the table to its original state.</li>
+        </ol>
+        <p>The generated table displays data entries that match the selected criteria and are sorted according to the chosen sorting option.</p>
+
+    </section>
+
+    <section id="how_do_i_use_breeding_log">
+        <h3>What is the breeding log tab used for?</h3>
+        <p>The Breeding Log tab is used to log and manage breeding information such as cage IDs, setup dates, strains, and breeding statuses.</p>
+        <ol>
+            <li>Enter specific criteria such as Breeding Cage ID, Setup Date, Strain, Stud ID, Dam ID, Comments, and Breeding Status for filtering.</li>
+            <li>Choose sorting options from the dropdown menu.</li>
+            <li>Click the "Apply filters" button to generate a log based on your selections.</li>
+            <li>Click the "Reset filters" button to clear all filters and reset the log to its original state.</li>
+        </ol>
+        <p>The generated log displays breeding records that match the selected criteria and are sorted according to the chosen sorting option.</p>
+    </section>
+
+    <section id="how_do_i_graph">
+        <h3>What is the Graphing tab used for?</h3>
+        <p>The Graphing tab is used to visualize mouse frequencies based on different variables such as sex, mouse type, and cage number.</p>
+        <ol>
+            <li>Select a table option from the dropdown menu.</li>
+            <li>Choose filtering criteria such as mouse status (alive or all) and grouping variables (Grouping Variable 1 and Grouping Variable 2).</li>
+            <li>Select a chart type (Bar Plot or Pie Chart).</li>
+            <li>Click the "Generate Chart" button to generate a chart based on your selections.</li>
+            <li>Optionally, you can click the "Reset Filters" button to clear all selections and reset the chart to its default state.</li>
+        </ol>
+        <p>The generated chart visualizes mouse frequencies based on the selected criteria and chart type.</p>
+
+    </section>
+
+    <section id="how_do_i_download">
+        <h3>How do I download the table and/or plots?</h3>
+        <p>You can download the table as a CSV (Comma Separated Values) file by clicking on the "Download" button provided in the table interface. If you have created plots or graphs using external tools, you can usually export them as image files or in other suitable formats for download.</p>
+    </section>
+
+    <section id="how_do_i_update">
+        <h3>How do I update the table with additional mouse data?</h3>
+        <p>To update the table with additional mouse data, you need to have appropriate access permissions. You can then use the excel upload to upload your own excel sheet. Make sure to download the instructions sheet and a template if you are not sure. First choose a table you want to upload into then upload your excel sheet. </p>
+    </section>
+    
+    <section id="how_do_i_create">
+        <h3>How do I add in a new mouse to the table?</h3>
+        <p>To update the table with new mouse data, you need to have appropriate access permissions. You can then use the excel upload to upload your own excel sheet. Make sure to download the instructions sheet and a template if you are not sure. To make a completely new table, upload your excel and name your strain table in the text box.</p>
+    </section>
+    
+    <section id="how_do_i_delete">
+        <h3>How do I add in a new mouse to the table?</h3>
+        <p>To update the table with new mouse data, you need to have appropriate access permissions. Select which table you would like to delete from the dropdown adn input a comma seperated list of the mouseIDs you want to remove. </p>
+    </section>
+    
+    <script src="../js/help.js"></script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to the WhiskerWatchers Database</title>
+    <link rel="stylesheet" href="../style/filter.css">
+</head>
+
+<body>
+    <header class="banner">
+        <div class="left-content">
+            <h1>WhiskerWatchersDB</h1>
+            <img src="../assets/images/logo.png" alt="logo" class="logo">
+        </div>
+    </header>
+
+<div class="tab">
+    <button class="tablinks" onclick="openTab(event, 'home')"><b>Home</b></button>
+    <button class="tablinks" onclick="openTab(event, 'filter')"><b>Mouse Information</b></button>
+    <button class="tablinks" onclick="openTab(event, 'breedinglog')"><b>Breeding Log</b></button>
+    <button class="tablinks" onclick="openTab(event, 'graphs')"><b>Graph Mouse Frequencies</b></button>
+    <button class="tablinks" onclick="openTab(event, 'update')"><b>Update Mouse Data</b></button>
+    <button class="tablinks" onclick="openTab(event, 'help')"><b>Help</b></button>
+    <div class="tab-right">
+        <div class="vertical-line"></div> <!-- Vertical blue line -->
+        <button class="logout-btn btn" onclick="logout()"><b>Log Out</b></button> <!-- Log Out button with onclick event -->
+    </div>
+</div>
+
+
+<div class="container">
+    <!-- Filter container -->
+    <div class="filter-container">
+        <!-- Filter form -->
+        <div class="form-container">
+            <form action="../cgi-bin/filter.py" method="get" id="filter-form">
+                <label for="tables">Select Table:</label>
+                <select id="tables" name="selected_table">
+                    <option value="">Select a table</option>
+                    <option value="ColSMA">ColSMA</option>
+                    <option value="FAT-1">FAT-1</option>
+                    <option value="Sm22-rtTA; TetO-Cre; mTmG">Sm22-rtTA; TetO-Cre; mTmG</option>
+                    <option value="Sm22-rtTA; TetO-Cre; mTmG; Mrtf">Sm22-rtTA; TetO-Cre; mTmG; Mrtf</option>
+                    <option value="Sm22-rtTA; TetO-Cre; mTmG; Fat-1">Sm22-rtTA; TetO-Cre; mTmG; Fat-1</option>
+                </select>
+                <button type="button" onclick="viewTable()">View Table</button>
+                <p>&nbsp;</p>
+                <p style="font-weight: bold; font-size: 17px;">Fill in the following filtering options:</p>
+                <p>&nbsp;</p>
+                <!-- Other filter options -->
+                <div class="form-row">
+                    <div class="search-container">
+                        <label for="mouseID">Mouse ID:</label>
+                        <input type="text" id="mouseID" name="mouseID" placeholder="e.g. 1708">
+                    </div>
+                    <div class="search-container">
+                        <label for="parent_cage">Parent Cage ID:</label>
+                        <input type="text" id="parent_cage" name="parent_cage" placeholder="e.g. 900654">
+                    </div>
+                    <div class="search-container">
+                        <label for="cage_number">Cage Number ID:</label>
+                        <input type="text" id="cage_number" name="cage_number" placeholder="e.g. 900695">
+                    </div>
+                    <div class="search-container">
+                        <label for="breeding_cage">Breeding Cage ID:</label>
+                        <input type="text" id="breeding_cage" name="breeding_cage" placeholder="e.g. 907018">
+                    </div>
+                </div>
+                <div class="select-container">
+                    <label for="sex">Sex:</label>
+                    <select id="sex" name="sex">
+                        <option value="">All</option>
+                        <option value="M">Male</option>
+                        <option value="F">Female</option>
+                    </select>
+                </div>
+                <div class="select-container">
+                    <label for="mouse-type">Mouse Type:</label>
+                    <select id="mouse-type" name="mouse-type">
+                        <option value="">All</option>
+                        <option value="Agouti">Agouti</option>
+                        <option value="Black">Black</option>
+                        <option value="Brown">Brown</option>
+                        <option value="Grey">Grey</option>
+                    </select>
+                </div>
+                <div class="select-container">
+                    <label for="mouse-status">Mouse Status:</label>
+                    <select id="mouse-status" name="mouse-status">
+                        <option value="">All</option>
+                        <option value="sac'd/died">Sacrificed/Died</option>
+                        <option value="sacrificed">Sacrificed</option>
+                        <option value="breeding">Breeding</option>
+                        <option value="none">None</option>
+                        <option value="set for breeding">Set for Breeding</option>
+                        <option value="used for study">Used for Study</option>
+                    </select>
+                </div>
+                <div class="date-container">
+                    <label for="dob">DOB:</label>
+                    <input type="date" id="dob" name="dob">
+                </div>
+                <div class="date-container">
+                    <label for="dod">DOD:</label>
+                    <input type="date" id="dod" name="dod">
+                </div>
+                <div class="date-container">
+                    <label for="cage-setup">Cage Setup:</label>
+                    <input type="date" id="cage-setup" name="cage-setup">
+                </div>
+                <!-- Sorting options -->
+                <div class="form-row">
+                    <label for="sort">Sort by:</label>
+                    <select id="sort" name="sort">
+                        <option value="">Select sorting option</option> 
+                        <option value="mouseID">Mouse ID</option>
+                        <option value="ParentCage">Parent Cage ID</option>
+                        <option value="dob">DOB</option>
+                        <option value="age">Age (weeks)</option>
+                        <option value="dod">DOD</option>
+                        <option value="cageNumber">Cage Number ID</option>
+                        <option value="cageSetup">Cage Setup Date</option>
+                        <option value="sex">Sex</option>
+                        <option value="mouseType">Mouse Type</option>
+                        <option value="stud">Stud ID</option>
+                        <option value="dam">Dame ID</option>
+                        <option value="mate">Mate ID</option>
+                        <option value="breedingCage">Breeding Cage ID</option>
+                        <option value="mouseStatus">Mouse Status</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label>Sort order:</label>
+                    <input type="radio" name="order" value="ASC"> Ascending
+                    <input type="radio" name="order" value="DESC"> Descending
+                </div>
+                <!-- Apply and Reset buttons -->
+                <div class="form-row">
+                    <input type="button" value="Apply filters" onclick="submitFilterForm()">
+                </div>
+                <div class="form-row">
+                    <input type="button" value="Reset filters" onclick="resetFilters()">
+                </div>
+            </form>
+        </div>
+        <!-- Help links -->
+        <div class="help-links">
+            <p>Choose specific criteria such as <b>Mouse ID</b>, <b>Sex</b>, and <b>Mouse Status</b> for filtering. Click "Filter" to generate a tailored table based on your selections.</p>
+            <p><a href="../html/help.html#how_do_i_filter" onclick="openHelpTab()">Need help understanding the filters?</a></p>
+            <p><a href="../html/help.html#what_does_the_table_show" onclick="openHelpTab()">Need help reading the table?</a></p>
+        </div>
+    </div>
+
+    <!-- Table container -->
+    <div class="table-container">
+        <!-- Table headers and rows will be dynamically generated here -->
+    </div>
+</div>
+
+<!-- Download options -->
+<div class="download-options-container" style="display: none;">
+    <div class="download-options">
+        <label for="file-format">Choose File Format:</label>
+        <select name="file-format" id="file-format">
+            <option value="csv">CSV</option>
+            <option value="excel">Excel</option>
+            <option value="txt">Text</option>
+        </select>
+        <button class="download-btn" onclick="downloadFilteredTable()">Download</button>
+    </div>
+</div>
+
+
+<div class="download-protocol-container" style="display: none;">
+    <div class="download-protocol">
+        <button id="download-button" onclick="downloadProtocol()">Download Protocol</button>
+        <span id="protocol-name"></span>
+    </div>
+</div>
+<script src="../js/filter.js"></script>
+</body>
+</html>

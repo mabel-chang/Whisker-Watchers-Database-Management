@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update</title>
+    <link rel="stylesheet" type="text/css" href="../style/update.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<!-- TOP BANNER -->
+    <!-- Header -->
+    <header class="banner">
+        <div class="left-content">
+            <h1>WhiskerWatchersDB</h1>
+            <img src="../assets/images/logo.png" alt="logo" class="logo">
+        </div>
+    </header>
+
+    <!-- Tabs -->
+    <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'home')"><b>Home</b></button>
+        <button class="tablinks" onclick="openTab(event, 'filter')"><b>Mouse Information</b></button>
+        <button class="tablinks" onclick="openTab(event, 'breedinglog')"><b>Breeding Log</b></button>
+        <button class="tablinks" onclick="openTab(event, 'graphs')"><b>Graph Mouse Frequencies</b></button>
+        <button class="tablinks" onclick="openTab(event, 'update')"><b>Update Mouse Data</b></button>
+        <button class="tablinks" onclick="openTab(event, 'help')"><b>Help</b></button>
+        <div class="tab-right">
+            <div class="vertical-line"></div> <!-- Vertical blue line -->
+            <button class="logout-btn btn" onclick="logout()"><b>Log Out</b></button> <!-- Log Out button with onclick event -->
+        </div>
+    </div>
+
+<!-- PAGE CONTENT -->
+    <!-- Update content goes here -->
+    <div class="upload-tabs-container">
+      <button class="upload-tabs active" id="update-container" onclick="openUpdateTab('update-container')"><b>Update Existing Mice</b></button>
+      <button class="upload-tabs" id="create-container" onclick="openUpdateTab('create-container')"><b>Create New Mice</b></button>
+      <button class="upload-tabs" id="delete-container" onclick="openUpdateTab('delete-container')"><b>Delete Mice </b></button>
+    </div>
+    
+    <div class="upload-content-container">
+      <div class="update-create-content" id="content-update-container">
+          <div class="excel" id="content-update-excel">
+                <h4>Excel Upload: </h4>
+                <!-- Help links -->
+                <div class="help-links">
+                    <p>Upload update help</p>
+                    <p><a href="../html/help.html#how_do_i_update" onclick="openHelpTab()">Need help updating the table?</a></p>
+                </div>
+                <form id="uploadForm1" enctype="multipart/form-data">
+                    <div class="form-row">
+                        <label for="strain_name_options" id="strain_name_options"><b>Strain Name: </b>
+                            <select name="strain_name" id="strain_name1"><!--autopopulate--></select>
+                        </label>
+                    </div> 
+                    <input type="file" name="fileInput" id="fileInput1" accept=".xlsx, .xls, .csv" onchange="previewExcel('fileInput1', 'preview1')">
+                </form>
+            
+                <div id="preview1" class="tablePreview"></div>
+                
+                <div id="submitContainer1" class="hidden">
+                    <button onclick="submitForm('../cgi-bin/upload_update_testing.py','update')">Submit</button>
+                </div>
+                
+                <h4>Excel Template and Instructions: </h4>
+                <button onclick="openBothFiles('update')">Download</button> 
+          </div>
+          <div class="horizontal-line"></div>
+      </div>
+      
+      <div class="update-create-content hidden" id="content-create-container">
+          <div class="excel">
+              <h4>Excel Upload: </h4>
+              <!-- Help links -->
+              <div class="help-links">
+                  <p>Upload update help</p>
+                  <p><a href="../html/help.html#how_do_i_create" onclick="openHelpTab()">Need help creating a mouse record?</a></p>
+              </div>
+              <form id="uploadForm2" enctype="multipart/form-data">
+                  <div class="form-row">
+                      <label for="strain_name_options" id="strain_name_options2"><b>Strain Name: </b>
+                          <select name="strain_name" id="strain_name2"><!--autopopulate--></select>
+                          <input type="text" name="strain_name" id="strain_name_input2" placeholder="Name your new table">
+                      </label>
+                  </div> 
+                  <input type="file" name="fileInput" id="fileInput2" accept=".xlsx, .xls, .csv" onchange="previewExcel('fileInput2', 'preview2')">
+              </form>
+          
+              <div id="preview2" class="tablePreview"></div>
+              
+              <div id="submitContainer2" class="hidden">
+                  <button onclick="submitForm('../cgi-bin/upload_create_testing.py','create')">Submit</button>
+              </div>
+              
+              <h4>Excel Template and Instructions: </h4>
+              <button onclick="openBothFiles('update')">Download</button> 
+          </div>
+          <div class="horizontal-line"></div>
+      </div>
+      
+      <div class="update-delete-content hidden" id="content-delete-container">
+          <!-- Help links -->
+          <div class="help-links">
+              <p>Upload create help</p>
+              <p><a href="../html/help.html#how_do_i_delete" onclick="openHelpTab()">Need help deleting a mouse record?</a></p>
+          </div>
+          <form id="deleteForm" method="post">
+              <div class="form-row">
+                    <label for="strain_name_options" id="strain_name_options"><b>Strain Name: </b>
+                        <select name="strain_name" id="strain_name_del"> <!--autopopulate--></select>
+                    </label>
+              </div> 
+              <br><br>
+              <label for="mouseIDs">Enter Mouse IDs (comma-separated):</label>
+              <textarea id="mouseIDs" name="mouseIDs" rows="4" cols="50" required></textarea>
+              <br><br>
+              <div id="deleteContainer" class="deleteButton hidden">
+                  <button type="button" onclick="deleteData()">Delete Data</button>
+              </div>
+          </form>
+          <div class="horizontal-line"></div>
+      </div>
+    </div>
+    
+    <script src="../js/update_script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+</body>
+</html>
