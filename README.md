@@ -31,7 +31,7 @@ WhiskerWatchersDB is a laboratory database and web application designed to manag
 ## Project Roles
 * Mabel Chang: Designed the relational database and implemented core backend functionality, connecting it to user-facing data management interfaces.
 * Akhila Gundavelli: Implemented user authentication, including sign-in/out, password reset, and session management.
-* Maria van de Meent: Developed front-end interfaces to display mouse information, including tables, charts, and filtering options.
+* Maria van de Meent: Developed front-end interfaces to display mouse information, including table and charting options.
   
 ## Aknowledgements
 We thank Dr. Nabil Rabhi and the Farmer Lab at Boston University, Chobanian & Avedisian School of Medicine, Department of Biochemistry & Cell Biology for commissioning this project and providing guidance on the database requirements.
